@@ -1,13 +1,11 @@
 package com.example.movesapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Blob;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -18,7 +16,9 @@ import java.util.Set;
 @ToString(exclude = "paidUsers")
 public class Movie {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "BINARY(16)")
+    private UUID id;
     private String title;
     private String category;
     private byte[] image;
