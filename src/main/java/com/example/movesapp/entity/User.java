@@ -1,6 +1,7 @@
 package com.example.movesapp.entity;
 
 import com.example.movesapp.entity.util.Role;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,5 +31,6 @@ public class User {
     @JoinTable(name = "user_movie",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"))
+    @JsonManagedReference
     private Set<Movie> paidMovies;
 }

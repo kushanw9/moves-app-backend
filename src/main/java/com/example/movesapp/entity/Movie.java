@@ -1,5 +1,6 @@
 package com.example.movesapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,5 +25,6 @@ public class Movie {
     private byte[] image;
     private String description;
     @ManyToMany(mappedBy = "paidMovies")
+    @JsonBackReference
     private Set<User> paidUsers;
 }
