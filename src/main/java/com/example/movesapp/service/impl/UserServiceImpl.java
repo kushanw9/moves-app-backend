@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
         if (!userRepository.existsById(userDTO.getId())) {
             // throw an exception
         }
+
         return mapper.map(userRepository.save(mapper.map(userDTO, User.class)), UserDTO.class);
     }
 
